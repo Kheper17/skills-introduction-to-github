@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Michel TISSIER">
+    <meta name="category" content="Documentation technique">
+    <meta name="copyright" content="CreaDev, Michel TISSIER">
+    <meta name="description" content="
+
+    ___                      ___             
+    / __\_ __  ___   __ _    /   \ ___ __   __
+   / /  | '__|/ _ \ / _` |  / /\ // _ \\ \ / /
+  / /___| |  |  __/| (_| | / /_//|  __/ \ V / 
+  \____/|_|   \___| \__,_|/___,'  \___|  \_/  
+                                              
+    ">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="keywords" content="HTML5, CSS6, JavaScript, ES6">
+    <meta name="publisher" content="Michel TISSIER">
+    <title>SOURCES - </title>
+    <!--link rel="stylesheet" href="styles/default.css">
+    <!--script src="js/fonctions.js"></script>
+</head>
+<body>
+    <div class="wrapper soft">
+        
+              <!-- ///////////////////////////////// -->
+<p>Le site de GIT : <a href="https://git-scm.com/">https://git-scm.com/</a>, le livre <a href="https://git-scm.com/book/fr/v2">PDF</a> en français!</p>
+<h3>Les commandes de base</h3> 
+<p>Qui suis-je ? (whoami) </p>
+              <pre>
+$   whoami
+    Mic</pre>
+
+              <p>pwd (Print Working Directory), affiche votre répertoire de travail, où vous êtes. </p>
+              <pre>
+$   pwd
+    /c/Users/Mic</pre>
+
+              <p>CD (Change Directory) pour se déplacer, naviguer. </p>
+              <pre>
+$   CD /D/GIT/</pre>
+              
+              <p>LS (List) afficher ce qu'il y a là où vous êtes. Avec -F il n'affiche que les fichiers. </p>
+              <pre>
+$   LS
+     old/ 
+     index.html</pre>
+                <pre>
+$   LS -F
+     index.html</pre>
+
+            <p>mkdir (Make Directory) créer un dossier. </p>
+            <pre>
+$   mkdir JS</pre>
+            <p>rm -r (remove directory) Effacer un dossier. </p>
+            <pre>
+$   mkdir JS</pre>
+
+<h3>Paramètrage de Git</h3>
+<p>Insérer votre nom pour le compte et l'email</p>
+            <pre>
+$ git config --golbal user.name "Kheper17"
+$ git config --golbal user.email "mti.android@gmail.com"</pre>
+<p>Pour voir votre conguration</p>
+            <pre>
+$ git config --list</pre>
+            <pre>
+$ git config --list --show-origin</pre>
+
+<h3>Récupérer un dépôt distant</h3>
+<p>Déplacez vous dans le dossier où vous souhaitez le copier</p>
+<pre>$  cd D:/GIT/</pre>
+<p>Allez sur github sur la branche main du repo qui vous intéresse. Allez dans code et copier dans Clone, HTTPS le lien qui commence par https:// et se termine par .git</p>
+<pre>$  git clone https://github.com/Kheper17/skills-introduction-to-github.git</pre>
+
+
+                <p>Ajouter le dépôt distant</p>
+                <pre>$  git remote add pb https://github.com/Kheper17/skills-introduction-to-github.git</pre>
+                <p>On vérifie</p>
+                <pre>$  git remote -v</pre>
+
+                <p>A présent allez dans le dossier télécharger</p>
+                <pre>$  cd skills-introduction-to-github</pre>
+
+                <p>On initialise le dépôt git</p>
+                <pre>$  git init<pre>
+                
+            </article>
+        </main>
+        <footer js-include="templates/_footer.html"></footer>
+    </div><!-- wrapper end -->   
+</body>
+</html>
