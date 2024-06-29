@@ -20,8 +20,11 @@
     <meta name="keywords" content="HTML5, CSS6, JavaScript, ES6">
     <meta name="publisher" content="Michel TISSIER">
     <title>SOURCES - </title>
-    <!--link rel="stylesheet" href="styles/default.css">
-    <!--script src="js/fonctions.js"></script>
+    <style>
+        pre {background-color:#999; border:2px solid #666;}
+    </style>
+    <!--link rel="stylesheet" href="styles/default.css"-->
+    <!--script src="js/fonctions.js"></script-->
 </head>
 <body>
     <div class="wrapper soft">
@@ -73,9 +76,11 @@ $ git config --list --show-origin</pre>
 <h3>Récupérer un dépôt distant</h3>
 <p>Déplacez vous dans le dossier où vous souhaitez le copier</p>
 <pre>$  cd D:/GIT/</pre>
-<p>Allez sur github sur la branche main du repo qui vous intéresse. Allez dans code et copier dans Clone, HTTPS le lien qui commence par https:// et se termine par .git</p>
+<p>Allez sur <strong>github</strong> sur la <em>branche</em> <b>main</b> du repo qui vous intéresse. Allez dans <b>code</b> et copier dans <b>Clone</b>, <b>HTTPS</b> le lien qui commence par <u>https://</u> et se termine par <u>.git</u></p>
 <pre>$  git clone https://github.com/Kheper17/skills-introduction-to-github.git</pre>
-
+<p>On vérifie</p>
+<pre>$  LS
+     skills-introduction-to-github</pre>
 
                 <p>Ajouter le dépôt distant</p>
                 <pre>$  git remote add pb https://github.com/Kheper17/skills-introduction-to-github.git</pre>
@@ -86,8 +91,20 @@ $ git config --list --show-origin</pre>
                 <pre>$  cd skills-introduction-to-github</pre>
 
                 <p>On initialise le dépôt git</p>
-                <pre>$  git init<pre>
-                
+                <pre>$  git init</pre>
+                <p>On ajoute une page nommez git.html (celle-ci en fait). <br>
+                On va pouvoir ajouter le fichier.</p>
+                <pre>$  git add git.html
+// git add -A (pour tout ajouter)</pre>
+                <p>On vérifie</p>
+                <pre>$  git status</pre>
+                <p>Ajouter un commit pour le mettre dans le HEAD</p>
+                <pre>$  git commit -m "learning file v001"</pre>
+                <p>Puis on le pousse sur le distant</p>
+                <pre>$  git push origin main</pre>
+                <p>Souvenez vous on avait ajouter le path dans le dépôt distant (remote).<br>
+                    <em>branch.main.remote=origin</em> dans la config (git config --list)</p>
+                <p>On peut vérifié en ligne (après 20 secondes).</p>
             </article>
         </main>
         <footer js-include="templates/_footer.html"></footer>
