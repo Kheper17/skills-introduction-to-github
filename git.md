@@ -178,4 +178,16 @@ $  git log  // flèche haut et bas, q pour sortir du END
 
 
 
+## Error 
+PS F:\GIT-CreaDev\Algorithmique> git status
+
+fatal: detected dubious ownership in repository at 'F:/GIT-CreaDev/Algorithmique'
+'F:/GIT-CreaDev/Algorithmique' is on a file system that does not record ownership
+To add an exception for this directory, call:
+```
+$  git config --global safe.directory '*' 
+```
+https://stackoverflow.com/questions/73485958/how-to-correct-git-reporting-detected-dubious-ownership-in-repository-withou
+
+
 
