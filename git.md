@@ -127,3 +127,55 @@ cd7ebb9 Update to 1 in STEP and README.md
 6d21562 Initial commit
 ```
 Ici on voit le HEAD pointer sur Master
+
+On ajoute un fichier git.md à la branche Master
+```
+$  git add git.md
+On branch Master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   git.md
+```
+On le Commmit pour l'ajouter
+```
+$  git commit -m "New branch Master"
+[Master b6107c1] New branch Master
+ 1 file changed, 129 insertions(+)
+ create mode 100644 git.md
+```
+
+On le pousse en ligne (remote)
+```
+$  git push origin Master
+```
+Sur les branches de Git : [Les-branches-avec-Git-Les-branches-en-bref](https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref)
+
+
+Si on a oublié de faire le commit sur un fichiers, on peut l'ajouter après coup sans refaire un commit
+```
+$  git add myfile.html
+$  git commit --Amend
+```
+
+Pour voir ses commit
+```
+$  git log  // flèche haut et bas, q pour sortir du END
+```
+---
+* git init
+* git status
+* git add .
+* git add -A
+* git commit -m ""
+* git log            (q pour sortir du END)
+* git commit --Amend (ajouter sans refaire un commit)
+---
+
+### Pour aller plus loin
+* [Les-branches-avec-Git-Les-branches-en-bref](https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref)
+* [Commandes-Git-Création-de-branches-et-fusion](https://git-scm.com/book/fr/v2/Commandes-Git-Cr%C3%A9ation-de-branches-et-fusion)
+* [La syntaxe markdown](https://docs.framasoft.org/fr/grav/markdown.html)
+
+
+
+
