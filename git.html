@@ -106,7 +106,109 @@ $ git config --list --show-origin</pre>
                     <em>branch.main.remote=origin</em> dans la config (git config --list)</p>
                 <p>On peut vérifié en ligne (après 20 secondes).</p>
 
-                <h3></h3>
+
+
+
+
+
+
+
+            <h3> Les branches</h3>   
+<p>On crée la branche Master</p>
+<pre>
+$  git branch Master
+</pre>
+<p>On vérifie</p>
+<pre>
+$  git log --oneline --decorate
+95dcb16 (HEAD -> main, origin/main, origin/HEAD, Master) learning file v003
+4c8ccb0 learning file v002
+320b548 learning file v001
+cd7ebb9 Update to 1 in STEP and README.md
+6d21562 Initial commit
+</pre>
+<p>On est toujours sur HEAD-->main.</p>
+<p>On veut aller sur la branche Master</p>
+<pre>
+$  git checkout Master
+</pre>
+<p>On vérifie</p>
+<pre>
+
+$  git log --oneline --decorate
+95dcb16 (HEAD -> Master, origin/main, origin/HEAD, main) learning file v003
+4c8ccb0 learning file v002
+320b548 learning file v001
+cd7ebb9 Update to 1 in STEP and README.md
+6d21562 Initial commit
+</pre>  
+<p>Ici on voit le HEAD pointer sur Master</p>                
+
+<p> On ajoute un fichier git.md à la branche Master</p>
+<pre>
+$  git add git.md
+On branch Master
+Changes to be committed:
+(use "git restore --staged <file>..." to unstage)
+new file:   git.md
+</pre>                    
+<p>  On le Commmit pour l'ajouter</p>           
+<pre>
+$  git commit -m "New branch Master"
+[Master b6107c1] New branch Master
+1 file changed, 129 insertions(+)
+create mode 100644 git.md
+</pre>
+<p> On le pousse en ligne (remote)</p>              
+<pre>         
+$  git push origin Master
+</pre>  
+<p> Sur les branches de Git : Les-branches-avec-Git-Les-branches-en-bref</p>                           
+<p>Si on a oublié de faire le commit sur un fichiers, on peut l'ajouter après coup sans refaire un commit</p>
+<pre>
+$  git add myfile.html
+$  git commit --Amend
+</pre>
+<p>Pour voir ses commit</p>
+<pre>
+$  git log  // flèche haut et bas, q pour sortir du END
+</pre>   
+                <p>////////////////////////////////////</p>
+                <ul>
+                    <li>git init</li>
+                    <li> git status</li>
+                    <li>git add .</li>
+                    <li>git add -A</li>
+                    <li>git commit -m ""</li>
+                    <li>git log (q pour sortir du END)</li>
+                    <li>git commit --Amend (ajouter sans refaire un commit)</li>
+                </ul>
+                <p>////////////////////////////////////</p>
+               <h3> Pour aller plus loin</h3>
+                <ul>
+                    <li><a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Les-branches-avec-Git-Les-branches-en-bref</a></li>
+                    <li><a href="https://git-scm.com/book/fr/v2/Commandes-Git-Cr%C3%A9ation-de-branches-et-fusion">Commandes-Git-Création-de-branches-et-fusion</a></li>
+                    <li><a href="https://docs.framasoft.org/fr/grav/markdown.html">La syntaxe markdown</a></li>
+                </ul>
+                
+                
+                <h3>Error</h3>
+                <p>PS F:\GIT-CreaDev\Algorithmique> git status</li>
+                <p>fatal: detected dubious ownership in repository at 'F:/GIT-CreaDev/Algorithmique' 'F:/GIT-CreaDev/Algorithmique' is on a file system that does not record ownership To add an exception for this directory, call:
+                </p>
+                <pre>$  git config --global safe.directory '*' </pre>
+                <a href=" https://stackoverflow.com/questions/73485958/how-to-correct-git-reporting-detected-dubious-ownership-in-repository-withou
+
+                "> https://stackoverflow.com/questions/73485958/how-to-correct-git-reporting-detected-dubious-ownership-in-repository-withou
+
+            </a>
+               
+
+
+
+
+
+                
             </article>
         </main>
         <footer js-include="templates/_footer.html"></footer>
