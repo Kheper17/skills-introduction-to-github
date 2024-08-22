@@ -21,17 +21,31 @@
     <meta name="publisher" content="Michel TISSIER">
     <title>SOURCES - </title>
     <style>
-        pre {color:#333; background-color:#999; border:2px solid #777;}
+        	pre {
+			padding:4px;
+			border:thin solid #ccc;
+			max-width:600px;
+			background-color: #F9F9F9;
+			/*overflow:scroll;*/
+		}
+		small {font-size:50%;}
     </style>
     <!--link rel="stylesheet" href="styles/default.css"-->
     <!--script src="js/fonctions.js"></script-->
 </head>
 <body>
     <div class="wrapper soft">
-        
+        <ol>
+            <li>Les commande de base</li>
+            <li>Paramètrage de Git</li>
+            <li>Récupérer un dépôt distant</li>
+            <li>Les branches</li>
+            <li>Pour aller plus loin</li>
+            <li>Error</li>
+        </ol>
               <!-- ///////////////////////////////// -->
 <p>Le site de GIT : <a href="https://git-scm.com/">https://git-scm.com/</a>, le livre <a href="https://git-scm.com/book/fr/v2">PDF</a> en français!</p>
-<h3>Les commandes de base</h3> 
+<h3>1. Les commandes de base</h3> 
 <p>Qui suis-je ? (whoami) </p>
               <pre>
 $   whoami
@@ -62,18 +76,18 @@ $   mkdir JS</pre>
             <pre>
 $   mkdir JS</pre>
 
-<h3>Paramètrage de Git</h3>
+<h3>2. Paramètrage de Git</h3>
 <p>Insérer votre nom pour le compte et l'email</p>
             <pre>
 $ git config --golbal user.name "Kheper17"
 $ git config --golbal user.email "mti.android@gmail.com"</pre>
-<p>Pour voir votre conguration</p>
+<p>Pour voir votre configuration</p>
             <pre>
 $ git config --list</pre>
             <pre>
 $ git config --list --show-origin</pre>
 
-<h3>Récupérer un dépôt distant</h3>
+<h3>3. Récupérer un dépôt distant</h3>
 <p>Déplacez vous dans le dossier où vous souhaitez le copier</p>
 <pre>$  cd D:/GIT/</pre>
 <p>Allez sur <strong>github</strong> sur la <em>branche</em> <b>main</b> du repo qui vous intéresse. Allez dans <b>code</b> et copier dans <b>Clone</b>, <b>HTTPS</b> le lien qui commence par <u>https://</u> et se termine par <u>.git</u></p>
@@ -113,7 +127,7 @@ $ git config --list --show-origin</pre>
 
 
 
-            <h3> Les branches</h3>   
+            <h3>4.  Les branches</h3>   
 <p>On crée la branche Master</p>
 <pre>
 $  git branch Master
@@ -152,7 +166,7 @@ Changes to be committed:
 (use "git restore --staged <file>..." to unstage)
 new file:   git.md
 </pre>                    
-<p>  On le Commmit pour l'ajouter</p>           
+<p>  On le Commit pour l'ajouter</p>           
 <pre>
 $  git commit -m "New branch Master"
 [Master b6107c1] New branch Master
@@ -184,7 +198,7 @@ $  git log  // flèche haut et bas, q pour sortir du END
                     <li>git commit --Amend (ajouter sans refaire un commit)</li>
                 </ul>
                 <p>////////////////////////////////////</p>
-               <h3> Pour aller plus loin</h3>
+               <h3>5. Pour aller plus loin</h3>
                 <ul>
                     <li><a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Les-branches-avec-Git-Les-branches-en-bref</a></li>
                     <li><a href="https://git-scm.com/book/fr/v2/Commandes-Git-Cr%C3%A9ation-de-branches-et-fusion">Commandes-Git-Création-de-branches-et-fusion</a></li>
@@ -192,7 +206,7 @@ $  git log  // flèche haut et bas, q pour sortir du END
                 </ul>
                 
                 
-                <h3>Error</h3>
+                <h3>6. Error</h3>
                 <p>PS F:\GIT-CreaDev\Algorithmique> git status</li>
                 <p>fatal: detected dubious ownership in repository at 'F:/GIT-CreaDev/Algorithmique' 'F:/GIT-CreaDev/Algorithmique' is on a file system that does not record ownership To add an exception for this directory, call:
                 </p>
