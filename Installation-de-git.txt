@@ -1,0 +1,72 @@
+Installation de git
+-------------------------
+https:git config//git-scm.com/downloads
+
+git version
+git -v
+
+configuration
+------------------------
+git config --global user.name "Jean Dupont"
+git config --global user.email "jean.dupont@gmail.com"
+
+	Changer le nom et l'email
+	------------------------
+	git config --global --replace-all user.name "new user"
+	git config --global --replace-all user.email "new@email"
+
+initialisez un repository
+-------------------------
+Placez vous dans le dossier de travail
+git init
+
+
+------------------
+git status
+git add file.html
+git commit -m ""
+git log
+------------------
+
+Sur la branche Master
+git status
+		untracked files (un fichier nouveau non pris en compte)
+git add monfichier.html
+git status
+		new file: monfichier.html (on veut l'ajouter)
+git commit -m "1er ajout"
+git status
+		1 file changed (un fichier a changé, il a été ajouté)
+
+git log (historique des commit)
+		HEAD -> Master
+		auteur, date, message du commit
+
+
+------------------
+git add file1.html file2.css file3.js
+git add .
+git commit --amend
+------------------ 
+
+Ajouter plusieur fichiers
+git add file1.html file2.css file3.js
+
+Tout ajouter
+git add .
+
+Après un commit j'ai oublié un fichier, pour l'ajouter
+git add file.js       (j'ajoute mon fichier)
+git commit --amend    (je le rajoute au dernier commit)
+
+
+------------------
+Origin est l'adresse du dépot distant que l'on trouve sur la page du repository
+<> code : https://github.com/creadev-ninja/animation-interaction.git
+------------------
+Voir origin
+	git remote -v
+ajouter origin
+	git remote add origin /path/to/origin   (remote, distant)
+supprimer
+	git remote rm origin

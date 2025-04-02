@@ -1,0 +1,488 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Git</title>
+	<link href='https://git-scm.com/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+	<style type="text/css">
+		pre {
+			padding:4px;
+			border:thin solid #ccc;
+			max-width:600px;
+			background-color: #F9F9F9;
+			/*overflow:scroll;*/
+		}
+		small {font-size:50%;}
+	</style>
+</head>
+
+<body>
+<h1>Git</h1>
+	<ol>
+	  <li>Installation de git  
+	    <ol>
+	      <li><a href="https://book.git-scm.com/download/linux">sur GNU Linux</a></li>
+	      <li><a href="https://gitforwindows.org/">sur Windows</a></li>
+	      <li><a href="https://git-scm.com/download/mac">sur MacOS</a></li>
+	      <li>Configurer Git</li>
+	      <li>Utiliser les logiciels pour git</li>
+	    </ol>
+	  </li>
+	  <li>Manipuler les fichiers
+		<ol>
+			<li>Ajouter des fichiers</li>
+			<li>Premier commit</li>
+			<li>Rédiger un bon message dde commit</li>
+			<li>Intégrer, déplacer, supprimer</li>
+		</ol>
+	  </li>
+	  <li>Gérer ses sources
+		<ol>
+			<li>Consulter l'historique</li>
+			<li>Rechercher un commit</li>
+			<li>Modifier un commit</li>
+		</ol>
+	  </li>
+	  <li>Gérer les branches et les tags</li>
+	  <li>Partager publier</li>
+	</ol>
+
+<hr>
+<h2>1. Installation de git</h2>
+	<p>Le site de Git : <a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a> </p>
+	<h3>1.1 installation sur Ubuntu</h3>
+	<p>https://git-scm.com/download/linux</p>
+	<pre>$ sudo apt-get install git</pre>
+	<p>Pour connaître la version de Git</p>
+	<pre>$ git --version</pre>
+
+	<h3>1.2 Installation sur Windows</h3>
+	<p>Téléchargez le fichier : <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+	<p>Suivre l'installation puis vérifier la version</p>
+	<pre>git -v
+// git version 2.45.1.windows.1	</pre>
+
+	<h3>1.3 Configurer Git</h3>
+	<p>Pour Linux et Windows</p>
+	<pre>git config --global user.name "prenom nom"
+git config --global user.email "monemail@dot.com"</pre>
+	<p>Trois niveaux de config : system / User / depot</p>
+	<pre>$ sudo git config --system core.editor vim</pre>
+	<p>Pour visualiser le fichier config utilisateur sur Linux</p>
+	<pre>$ sudo nano /etc/gitconfig</pre>
+	<p>Pour visualiser le fichier config utilisateur sur Windows</p>
+	<pre>git config --edit --global
+git git config --edit --system</pre>
+	<p>Si ça ne marche pas sous Windows vous pouvez chercher l'emplacement de votre fichier gitconfig</p>
+	<pre>$ git config --list --show-origin
+		
+...
+file:C:/Users/Mic/.gitconfig    core.editor="C:\Users\Mic\AppData\Local\Programs\Microsoft VS Code\bin\code" --wait
+file:C:/Users/Mic/.gitconfig    user.name=Mic
+file:C:/Users/Mic/.gitconfig    user.email=creadev.ninja@gmail.com
+file:C:/Users/Mic/.gitconfig    safe.directory=*
+	</pre>
+	<p>Pour de l'aide :</p>
+	<pre>$ git --help</pre>
+
+	<h3>1.4 Utiliser des logiciels pour Git (GUI)</h3>
+	<ul>
+		<li>pour Windows : Tortoise git <a href="https://tortoisegit.org/" title="Tortoise git">[_]</a></li>
+		<li>pour Linux : Gitg <a href="https://wiki.gnome.org/Apps/Gitg/" title="Gitg">[_]</a></li>
+	</ul>
+
+<hr>
+<h2>2. Manipuler les fichiers</h2>
+	<ol>
+		<li>working dir/ //// Répertoire de travail où l'on place ses fichiers</li>
+		<li>add (index) ////  Insère dans l'index</li>
+		<li>commit (HEAD) //// Insère dans le dépot (Master)</li>
+	</ol>
+	<p>initialiser un dépot (dans le répertoire où l'on place les fichiers)à</p>
+	<pre>$ git init</pre>
+
+	<h3>2.1 Ajouter des fichiers</h3>
+	<pre>$ git add monfichier.html</pre>
+	<p>Pour retirer un fichier</p>
+	<pre>$ git rm --cached monfichier.html</pre>
+	<p>Pour savoir l'état général</p>
+	<pre>$ git status</pre>
+	<p>Pour savoir quel fichier ne sont pas versionné :</p>
+	<pre>$ git ls-files --others --exclude-standard</pre>
+	<p>Pour ajouter tous les fichiers du répertoire (pas conseillé)</p>
+	<pre>$ git add -A // ajoute tout y compris les fichiers de log ...)</pre>
+
+	<h3>2.2 Premier commit</h3>
+	<p>Un message de Commit est obligatoire</p>
+	<pre>$ git commit -m "Mon premier commit"</pre>
+	<p>Pour afficher tous les commit, ou le dernier</p>
+	<pre>$ git log
+$ git log -1	</pre>
+	<p>A chaque modification du fichier :</p>
+	<pre>$ git add monfichier.html
+$ git commit -m "mon message"</pre>
+	<p>Ou bien les deux à la fois :</p>
+	<pre>$ git commit -a</pre>
+	<p>qui ouvre une zone où saisir le message de commit</p>
+
+	<h3>2.3 Rédiger un bon message de commit</h3>
+	<p>Les règles de commit</p>
+	<pre>Les règles de commit
+
+- Prendre le temps de rédiger un message
+- Ajouter un sujet
+- Limiter la taille du sujet à 50 caractères
+- Eviter les accents
+- Répondre à la question pourquoi ? plutôt que quoi ?
+- En français si possible
+	</pre>
+	<p>Pouvoir retrouver des fonctionnalités et du code dans le versionning</p>
+	<p>Afficher uniquement le sujet des commit(s) </p>
+	<pre>$ git log --online</pre>
+	<p>Afficher les sujet et l'auteur des commit(s)</p>
+	<pre>$ git shorlog</pre>
+
+	<h3>2.4 Intégrer, déplacer, supprimer</h3>
+	<p>Template graphique : </p>
+	<ul>
+		<li><a href="http://www.opendesigns.org/website-templates/">http://www.opendesigns.org/</a> (<a href="http://www.opendesigns.org/design/simple-style-7/">simple style 7</a>)</li>
+		<li><a href="http://www.free-css.com/">http://www.free-css.com/</a></li>
+		<li><a href="https://freewebsitetemplates.com/">https://freewebsitetemplates.com/</a></li>
+	</ul>
+	<p>Ajouter la totalité de l'archive dans le dossier (en écrasant index.html)</p>
+	<pre>$ git add -A
+$ git status
+$ git commit -m "Ajout du tpl Simple Style 7"</pre>
+	<p>Changer le nom d'un fichier</p>
+	<pre>$ git mv ancien_nom.html nouveau_nom.html</pre>
+	<p>Supprimer un fichier (dans le dossier et de l'index)</p>
+	<pre>$ git rm page.html
+$ git commit -a -m "supression de page et another_page"</pre>
+	<p>Ne plus suivre un fichier</p>
+<pre>$ git commit -a -m "modif header + logo"
+$ git status
+$ git add images/
+
+# on ne veut plus suivre logo1.jpg
+
+$ git rm --cached images/logo1.jpg
+$ git commit -m "suppr logo1.jpg inutile"</pre>
+<p>Ignorer des fichiers<br> On crée un fichier .gitignore (avec vim ou nano)</p>
+<pre>$ vim .gitignore 
+------------------------------------
+# ignorer le fichier logo1.jpg
+/images/logo1/jpg
+------------------------------------
+$ git add .gitignore
+$ git commit -m "Ajout du fichier .gitignore"</pre>
+
+<hr>
+<h2>3. Gérer les sources</h2>
+<h3>3.1 Consulter l'historique</h3>
+<pre># L'historique complet
+$ git log 
+# 	enter pour la fin du fichier
+# 	q pour sortir
+
+# Le dernier commit
+$ git log -1
+
+# uniquement les sujets
+$ git log --oneline
+
+# Les deux derniers sujets
+$ git log -2 --oneline
+
+# les commit d'un auteur
+$ git log --author "prenom nom"
+
+# filtrer par date
+$ git log --before "2016-11-07"
+$ git log --after "2016-11-07"
+$ git log --before "2016-11-07" --after "2016-11-05"
+$ git log --since=1.day  (week, month)
+
+# interroger un fichier
+$ git log index.html</pre>
+
+<p>Parcourir les différence entre le répertoire de travail, l'index et le dépot</p>
+<pre># différences entre le répetoire de travail et l'index
+$ git diff
+# 	en rouge l'ancienne ligne
+# 	en vert
+
+#les différences entre l'index et le dépot
+$ git diff --cached
+
+#Les différences entre le répertoire de travail et le dépot
+$ git diff HEAD</pre>
+<p>Le contenu du dernier commit du dépot</p>
+<pre>$ git diff HEAD^1</pre>
+<p>Comparer deux commit(s)</p>
+<pre>$ git log --oneline
+# liste des sujet de commit avec leur numéro raccoucis
+d9dacf3 modif taille logo index
+e970422 Ajout du fichier .gitignore
+aaa9417 suppr logo1.jpg inutile
+
+$ git diff d9dacf3 aaa9417</pre>
+<table border="1" cellpadding="2" cellspacing="0">
+<caption>Récapitulatif Git Diff</caption>
+	<thead>
+		<tr>
+			<th>Commande</th>
+			<th>Répertoire de travail</th>
+			<th>Index</th>
+			<th>Dépôt Git (historique)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>git diff</td>
+			<td align="right"><----</td>
+			<td align="left">----></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>git diff --cached</td>
+			<td>&nbsp;</td>
+			<td align="right"><----</td>
+			<td align="left">----></td>
+		</tr>
+		<tr>
+			<td>git diff HEAD</td>
+			<td align="right"><----</td>
+			<td>----------</td>
+			<td align="left">----></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<h3>3.2 Rechercher un Commit</h3>
+<pre># search logo
+$ git log -S "logo"
+
+#expression rationnelle (régulière)
+$ git log -G "logo(1|2)</pre>
+<p>Qui à fait quoi ?</p>
+<pre>$ git blame mon_fichier.html</pre>
+<p>Annuler des modifications<br> Remet les fichiers dans le même état que le dépôt Git.</p>
+<pre>$ git reset --hard (HEAD par défaut)</pre>
+<table border="1" cellpadding="2" cellspacing="0">
+<caption>Récapitulatif Git Reset</caption>
+	<thead>
+		<tr>
+			<th>Commande</th>
+			<th>Répertoire de travail</th>
+			<th>Index</th>
+			<th>Dépôt Git (historique)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>git reset --soft</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td align="center">X</td>
+		</tr>
+		<tr>
+			<td>git reset (--medium)</td>
+			<td>&nbsp;</td>
+			<td align="center">X</td>
+			<td align="center">X</td>
+		</tr>
+		<tr>
+			<td>git reset --hard</td>
+			<td align="center">X</td>
+			<td align="center">X</td>
+			<td align="center">X</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<h3>3.3 Modifier un Commit</h3>
+<p>On ne peut modifier que le dernier commit (et pas avoir pousser sur un serveur)</p>
+<pre>$ git add mon_fichier.html
+$ git commit -m "mon nouveau message" --amend</pre>
+<p>Nettoyer les fichiers inutiles</p>
+<pre># Afficher les fichiers à nettoyer
+$ git clean -n
+
+# montre les log et les fichiers
+$ git clean -dn
+
+# nettoie tout y compris le log
+$ git clean -df
+
+# supprimer les fichiers préset dans .gitignore
+$ git clean -xf</pre>
+
+<hr>
+<h2>4. Gérer les branches et les tags</h2>
+<h3>Lister, créer, changer de branche</h3>
+<pre># lister les branches
+$ git branch
+
+# lister les branches sous forme de graphe
+$ git log --graph --oneline
+
+# créer une branche
+$ git branch style
+
+# changer de branche
+$ git checkout style
+</pre>
+<h3>Fusionner les branches</h3>
+<p>Fusionner les branches (Master + style)</p>
+<pre># on se place sur la branche master
+$ git checkout master
+
+# on fusionne avec la branche style
+$ git merge style
+</pre>
+<p>Gérer les conflits de fusion</p>
+<pre># créer une nouvelle branche (-b = branch)
+$ git checkout -b conflict
+# identique à git branch confclict + git checkout conflict
+
+# problème de fusion
+CONFLIT (contenu) : Conflit de fision dans l'index.html
+La fusion automatique a échoué : réglez les conflits et validez e résultat.
+</pre>
+<pre><<<<<<< HEAD
+        &lt;div class="slogan">Un service de qualit&eacute; excellente&lt;/div>
+=======
+        &lt;div class="slogan">Un service d'excellente qualit&eacute;&lt;/div>
+>>>>>>> conflict</pre>
+<p>On corrige dans le fichier.<br> Puis on fait un add + commit du fichier.</p>
+<h3>Supprimer une branche</h3>
+<p>Supprimer une branche qui ne sera pas intégrer<br>
+Supprimer une bra,che après une fusion (merge)</p>
+<pre># supprimer une branche (-d = delete)
+$ git branch -d conflict</pre>
+<p>Rebase -> intégrer les modifications d'une branche dans la branche principale</p>
+<pre># rebase : modification de commit (à faire en local avant un push)
+$ git rebase footer</pre>
+<h3>Gérer les tags (version, release)</h3>
+<p></p>
+<pre># ajout de tag
+$ git tag v1.0.0 d9dacf3
+
+# lister les tags
+$ git tag --list
+
+# visualiser la version
+$ git show v1.0.0
+
+# le dernier commit
+$ git tag
+
+# annotation à un tag
+$ git tag -a v1.0.0 d9dacf3 -m "Version stable avec style"
+
+# afficher les tags
+$ git log --graph --oneline --decorate</pre>
+
+<hr>
+<h2>5. Partager et publier</h2>
+<h3>Créer un dépôt distant</h3>
+<p>Permet de centraliser les différents dépôts</p>
+<pre># créer un dépôt distant vide
+$ git init --bare testdistant
+
+# créer un dépôt distant à partir d'un dépôt local
+$ git clone --bare depotlocal/ depotdistant</pre>
+
+<p>Cloner un dépot distant</p>
+<pre># Cloner un dépot distant en local 
+$ git clone depotdistant/ depotlocal/</pre>
+<p>à partir de Github</p>
+<pre># créer un dossier
+$ mkdir hellomichael
+$ cd hellomichael/
+$ git clone https://github.com/hellomichael/hellomichael.github.io.git</pre>
+<h3>Partager ses modification vers un dépôt central (push)</h3>
+<p>Connecter son dépôt local au dépôt distant. Partager ses modifications avec un dépôt central.</p>
+<pre># liste les dépôts ditant configuré
+$ git remote
+
+# ajouter un dépôt distant
+$ git remote add url
+
+# met à jour la copie locale des dépôts distant
+$ git remote update
+
+# connecter local / distant
+$ git remote origin ../distant/
+
+# envoyer les modifications sur le dépôt central
+$ git push</pre>
+
+<h3>Mise à jour d'un dépôt (pull)</h3>
+<pre># liste toutes les branches locales
+    $ git branch 
+# liste les branches distantes
+    $ git branch -r
+# liste les branches locales et distantes
+    $ git branch -a
+    $ git branch --all</pre>
+
+<p>Maj de la copie local du dépôt distant (pull)</p>
+<pre># liste toutes les branches
+$ git branch --all
+
+# Maj de la copie local du dépôt distant (version longue)
+$ git fetch
+$ git merge origin/master (FETCH_HEAD)
+
+# la méthode usuelle (version courte)
+$ git pull origin master</pre>
+<p>Pour éviter les conflits dans le travail collaboratif, faire un pull avant un push.</p>
+<h3>Créer et supprimer une branche distante</h3>
+<p>Créer une branche distante</p>
+<pre># créer la branche
+$ git branch new_page
+$ git branch
+
+# on l'envoie sur le distant
+$ git push origin new_page
+
+# on passe lsur la branche pour travailler imédiatement
+$ git checkout new_page</pre>
+<pre># on récupère la branche en local pour travailler
+$ git pull origin new_branch
+$ git branch --all
+
+# on crée la branche en local en basculant dessus
+$ git checkout -b new_page origin/new_page</pre>
+
+<p>Supprimer une branche distante</p>
+<pre># on liste les branches
+$ git branch --all
+
+# on passe sur la branche master
+$ git checkout master
+
+# on supprime la branche new_page
+$ git push origin :new_page</pre>
+
+<h2>Outils et raccourcis</h2>
+<p>Installer gitk</p>
+<pre>$ sudo apt-get install gitk</pre>
+<p><a href="https://git-scm.com/docs/git-bisect">Identifier un commit à problème</a></p>
+<pre>$ git bisect</pre>
+<p><a href="https://git-scm.com/docs/git-stash">Planquer un travail en cours</a>, sauvegarder un travail non fini.</p>
+<pre>$ git stash</pre>
+<p>Git  / SVN</p>
+<p><a href="https://git-scm.com/book/it/v2/Git-Basics-Git-Aliases">Git Aliases</a></p>
+<pre>$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status</pre>
+<hr>
+Resources :
+<a href="http://rogerdudler.github.io/git-guide/index.fr.html">http://rogerdudler.github.io/git-guide/index.fr.html</a>
+</body>
+</html>
