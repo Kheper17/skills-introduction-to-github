@@ -45,6 +45,7 @@
             <li>Les images</li>
             <li>Les citations</li>
             <li>Liste</li>
+            <li>Case à cocher</li>
             <li>Titre</li>
             <li>tableau</li>
             <li>Shortcodes</li>
@@ -52,48 +53,102 @@
 
 
         <h3>Le markdown</h3>
-
+  
 
 
 
         <h3>Le texte</h3>
 
-
+      <!--
+        <table border="0" width="400">
+            <tr>
+                <td>_italique_</td>
+                <td>italique</td>
+            </tr>
+            <tr>
+                <td>**gras**</td>
+                <td>gras</td>              
+            </tr>
+            <tr>
+                <td>**_gras-italique_**</td>
+                <td>gras italique</td>
+            </tr>
+            <tr>
+                <td>~~barré~~</td>
+                <td>barré</td>
+            </tr>
+        </table>
+    -->
+    <ul>
+        <li> _italique_ affiche  : italique</li>
+        <li>**gras** affiche : gras</li>
+        <li>**_gras-italique_** affiche : gras-italique</li>
+        <li>~~barré~~ affiche : barré</li>
+    </ul>
 
 
         <h3>Le code</h3>
 
-
+        ```bloc de code```  (touche alt gr + 7 nomé Backtick, apostrophe inversé)
 
 
         <h3>Les liens</h3>
 
+       <p>[ texte du lien ]( http://www.lelien.fr ) <br>
 
-
+        [ texte du lien ]( http://www.lelien.fr )( .class1 .class2 ) </p> 
 
         <h3>Les images</h3>
 
-
-
-
+        <p> ![ texte remplacement ]( ./images/logo.png ) </p>
+        <p>On ajoute le texte au survol</p>
+        <p> ![ texte remplacement ]( ./images/logo.png "texte de survol" ) </p>
+        
         <h3>Les citations</h3>
 
+        <p> > Une citation</p>
 
 
+        <h3>Liste</h3>
 
-        <h3>h3ste</h3>
+        <p>* item 1 <br>
+            * item 2 <br>
+                * subitel 2.1 <br>
+            * item 3</p> 
 
+        <p> - item 1 <br>
+            - item 2 <br>
+                - subitel 2.1 <br>
+            - item 3</p> 
 
+         <p>1. item 1 <br>
+            2. item 2 <br>
+                2.1 subitel 2.1 <br>
+            3. item 3</p> 
 
+        <h3>Case à cocher</h3>
+
+        <p> [ ] A <br>
+            [X] B <br>
+            [ ] C </p>
 
         <h3>Titre</h3>
 
-
+       <p> # Titre 1 <br>
+           ## Titre 2 <br>
+           ### Titre 3 <br>
+           #### Titre 4 </p>     
+        <p>çc marche aussi en souligant -- ou ===</p>
 
 
         <h3>tableau</h3>
-
-
+        <p>
+        | Aligné à gauche  | Centré          | Aligné à droite |     <br>
+        | :--------------- |:---------------:| -----:|               <br>
+        | Aligné à gauche  |   ce texte        |  Aligné à droite |  <br>
+        | Aligné à gauche  | est             |   Aligné à droite |   <br>
+        | Aligné à gauche  | centré          |    Aligné à droite | 
+        </p>
 
 
         <h3>Shortcodes</h3>
